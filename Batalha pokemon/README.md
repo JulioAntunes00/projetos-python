@@ -6,19 +6,16 @@ Projeto criado para treinar orientação a objetos com Python, usando uma simula
 
 # O que o projeto faz
 
-- Cria dois Pokémons com nome, vida e força
-- Mostra no terminal a entrada dos Pokémons na batalha
-- Cada Pokémon ataca o outro e o código mostra:
-  - Quem atacou
-  - Quanto de dano foi causado
-  - Quantos pontos de vida restaram
+- Cria Pokémons com nome, vida e força
+- Permite que um Pokémon ataque o outro
+- Simula uma batalha simples no terminal
+- Inclui um Pokémon lendário com ataque especial que causa mais dano
 
 ---
 
 # Conceitos usados
 
-- Classes e objetos
-- `__init__` e `self`
-- Atributos (vida, nome, força)
-- Métodos (`atacar`)
+- Classes e herança (`Pokemon` e `PokemonLendario`)
+- Atributos (`self.nome`, `self.vida`, etc)
+- Métodos (`atacar`, `ataque_especial`)
 - Impressão formatada com `f-strings`

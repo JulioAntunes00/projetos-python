@@ -1,15 +1,18 @@
 import os
 
-# Função para limpar a tela do terminal
+cursos_disponiveis_lista = {
+    "1": "Introdução à Programação",
+    "2": "Banco de Dados Avançado",
+    "3": "Machine Learning Básico"
+}
+cursos_inscritos = []
+
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-#Função para criar linhas para o melhor visual
 def linha(tamanho=45):
     print("=" * tamanho)
 
-
-# Função para exibir o menu principal
 def menu_principal():
     while True:
         limpar_tela()
@@ -32,7 +35,6 @@ def menu_principal():
         else:
             input("\n❌ Opção inválida! Pressione ENTER para tentar novamente...")
 
-# Função para criar usuário
 def criar_usuario():
     limpar_tela()
     linha()
@@ -44,7 +46,6 @@ def criar_usuario():
     print("\n✅ Usuário criado com sucesso!\n")
     input("🔹 Pressione ENTER para continuar...")
 
-# Função para fazer login
 def fazer_login():
     limpar_tela()
     linha()
@@ -54,9 +55,8 @@ def fazer_login():
     senha = input("🔒 Senha: ")
     print("\n✅ Login realizado com sucesso!\n")
     input("🔹 Pressione ENTER para acessar o painel...")
-    return True  # Simulando um login bem-sucedido
+    return True
 
-# Função para exibir o painel principal após login
 def painel_principal():
     while True:
         limpar_tela()
@@ -77,51 +77,56 @@ def painel_principal():
         else:
             input("\n❌ Opção inválida! Pressione ENTER para tentar novamente...")
 
-# Função para exibir cursos disponíveis
 def cursos_disponiveis():
     while True:
         limpar_tela()
         linha()
         print("      📜 LISTA DE CURSOS DISPONÍVEIS      ")
         linha()
-        print("1️⃣ 🔹 Introdução à Programação")
-        print("2️⃣ 🔹 Banco de Dados Avançado")
-        print("3️⃣ 🔹 Machine Learning Básico")
+        for key, value in cursos_disponiveis_lista.items():
+            print(f"{key}️⃣ 🔹 {value}")
         print("0️⃣ 🔙 Voltar\n")
         escolha = input("🔹 Escolha um curso para se inscrever: ")
 
-        if escolha in ["1", "2", "3"]:
-            print("\n✅ Inscrição realizada com sucesso!\n")
+        if escolha in cursos_disponiveis_lista:
+            curso = cursos_disponiveis_lista[escolha]
+            if curso not in cursos_inscritos:
+                cursos_inscritos.append(curso)
+                print(f"\n✅ Inscrição no curso '{curso}' realizada com sucesso!\n")
+            else:
+                print(f"\n⚠️ Você já está inscrito no curso '{curso}'.\n")
             input("🔹 Pressione ENTER para continuar...")
         elif escolha == "0":
             break
         else:
             input("\n❌ Opção inválida! Pressione ENTER para tentar novamente...")
 
-# Função para exibir cursos do usuário
 def meus_cursos():
     while True:
         limpar_tela()
         linha()
         print("          📂 MEUS CURSOS INSCRITOS       ")
         linha()
-        print("1️⃣ 🎓 Introdução à Programação")
+        if not cursos_inscritos:
+            print("📭 Você ainda não está inscrito em nenhum curso.")
+        else:
+            for idx, curso in enumerate(cursos_inscritos, 1):
+                print(f"{idx}️⃣ 🎓 {curso}")
         print("0️⃣ 🔙 Voltar\n")
         escolha = input("🔹 Escolha um curso para acessar: ")
 
-        if escolha == "1":
-            acessar_curso()
-        elif escolha == "0":
+        if escolha == "0":
             break
+        elif escolha.isdigit() and 1 <= int(escolha) <= len(cursos_inscritos):
+            acessar_curso(cursos_inscritos[int(escolha) - 1])
         else:
             input("\n❌ Opção inválida! Pressione ENTER para tentar novamente...")
 
-# Função para acessar um curso
-def acessar_curso():
+def acessar_curso(nome_curso):
     while True:
         limpar_tela()
         linha()
-        print("     📘 Introdução à Programação      ")
+        print(f"     📘 {nome_curso.upper()}      ")
         linha()
         print("📌 Módulos disponíveis:")
         print("1️⃣ 🔹 Variáveis e Tipos de Dados")
@@ -131,20 +136,65 @@ def acessar_curso():
         escolha = input("🔹 Escolha um módulo para estudar: ")
 
         if escolha in ["1", "2", "3"]:
-            estudar_modulo()
+            estudar_modulo(escolha)
         elif escolha == "0":
             break
         else:
             input("\n❌ Opção inválida! Pressione ENTER para tentar novamente...")
 
-# Função para estudar um módulo do curso
-def estudar_modulo():
+def estudar_modulo(modulo):
     limpar_tela()
     linha()
-    print("   ✏️ VARIÁVEIS E TIPOS DE DADOS   ")
-    linha()
-    print("📖 [Conteúdo do módulo exibido aqui...]\n")
-    input("✅ Pressione ENTER para marcar como concluído e voltar...")
+    conteudos = {
+        "1": """
+✏️ VARIÁVEIS E TIPOS DE DADOS
+
+📌 O que são variáveis?
+Variáveis são espaços da memória onde guardamos dados.
+
+📌 Exemplos:
+    nome = "Ana"
+    idade = 17
+    altura = 1.65
+    ativo = True
+
+📌 Dica:
+Use nomes simples e claros. Variáveis tornam seu código reutilizável!
+""",
+
+        "2": """
+✏️ ESTRUTURAS CONDICIONAIS
+
+📌 if/else
+Permite tomar decisões no programa.
+
+📌 Exemplo:
+    idade = 18
+    if idade >= 18:
+        print("Você é maior de idade.")
+    else:
+        print("Você é menor de idade.")
+""",
+
+        "3": """
+✏️ LAÇOS DE REPETIÇÃO
+
+📌 for e while
+Permitem repetir ações.
+
+📌 Exemplo com for:
+    for i in range(5):
+        print(i)
+
+📌 Exemplo com while:
+    x = 0
+    while x < 5:
+        print(x)
+        x += 1
+"""
+    }
+    print(conteudos.get(modulo, "Conteúdo indisponível."))
+    input("\n✅ Pressione ENTER para marcar como concluído e voltar...")
 
 # Iniciar o sistema
 menu_principal()

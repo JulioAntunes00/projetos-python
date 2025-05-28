@@ -19,3 +19,4 @@ Projeto criado para treinar orientação a objetos com Python, usando uma simula
 - Atributos (`self.nome`, `self.vida`, etc)
 - Métodos (`atacar`, `ataque_especial`)
 - Impressão formatada com `f-strings`
+- 

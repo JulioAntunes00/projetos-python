@@ -1,6 +1,15 @@
 def exibir_menu():
-    print("..::MENU DE TAREFAS::..\n 1 - Listar tarefas\n 2 - Adicionar tarefa\n 3 - Remover tarefa\n 4 - Sair")
-    print int(input("\n Digite a opção desejada."))
+    print("..::MENU DE TAREFAS::..")
+    print("1. Listar tarefas")
+    print("2. Adicionar tarefas")
+    print("3. Remover tarefas")
+    print("4. Sair")
+    print("::::::::::::::::::::::")
 
+def main():
+    while True:
+        exibir_menu()
+        opcao = int(input("Digite a opção desejada: "))
 
-exibir_menu
+if __name__ == "__main__":
+    main()

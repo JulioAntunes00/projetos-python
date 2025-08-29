@@ -2,7 +2,7 @@ import tkinter as tk
 
 janela = tk.Tk()
 
-janela.title("Calculadora")
+janela.title("Calculadora simples")
 janela.geometry("300x400")
 janela.resizable(False, False) #impede de alterar tamanho da janela
 

@@ -1,0 +1,45 @@
+
+h1 {
+    text-align: center;
+    line-height: 100px;
+    font-size: 60px;
+    color: red
+}
+
+h2{
+    text-align: center;
+}
+
+p {
+    padding: 10px;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: blueviolet
+}
+
+.destaque {
+    color: rgb(171, 157, 248)
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(236, 240, 236)
+}
+
+a {
+    font-size: 25px;
+    color: black;
+    text-decoration: none;
+    background-color: blueviolet;
+    border: 5px solid rgb(63, 0, 236);
+    margin: 850px;
+    display:inline;
+
+}
+
+img{
+    margin: auto;
+    display: block;
+    height: 100px;
+    width: 150px;
+}

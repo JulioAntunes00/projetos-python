@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minha Primeira Página</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <h1>Bem-vindo!</h1>
+    <p>Esta é a minha primeira página web.</p>
+    <h2>O que vamos aprender?</h2>
+    <p class="destaque">Nós vamos usar HTML para estruturar nossa página e CSS para deixá-la mais bonita!</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Lightmatter_chimp.jpg" alt="Descrição da imagem"><br><br>
+    <br>
+    <input type="texto" id="camporDeTexto">
+    <button id="BotãoDePesquisa">Pesquisar no Google</button>
+
+
+</body>
+</html>

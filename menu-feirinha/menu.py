@@ -1,4 +1,4 @@
-print("\n..:LISTA DE FRUTAS:..")
+print("\n..:LISTA DE FRUTAS!!!:..")
 
 lista = ["Uva", "Banana", "Melancia", "Abacate"]
 
